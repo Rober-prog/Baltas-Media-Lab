@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Baltas Media Lab - Agencia de Tecnología y Marketing</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1e1b18", // Charcoal (main neutral)
+                        secondary: "#2f2b28", // Deep slate
+                        accent: "#c9ad7c", // Warm sand accent
+                        "background-dark": "#0b0b0b", // Very dark background
+                        "background-alt-dark": "#121212", // Slightly lighter for sections
+                        "card-dark": "#161616", // For cards and subtle elements
+                        "text-light": "#F7F6F2", // Light text for contrast
+                        "text-dark": "#B9B5AF", // Muted warm gray for secondary text
+                        "border-dark": "#222222", // Subtle border color
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem", // Slightly more rounded
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                    boxShadow: {
+                        'glow': '0 6px 18px rgba(2,6,23,0.35)', // subtle depth (non-neon)
+                        'glow-md': '0 10px 24px rgba(2,6,23,0.28)',
+                        'glow-lg': '0 12px 32px rgba(2,6,23,0.22)',
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-background-dark text-text-light;
+        }
+        .grid-background {
+            background-image: linear-gradient(to right, #2b2b2b 1px, transparent 1px), linear-gradient(to bottom, #2b2b2b 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .hero-gradient-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(212,175,55,0.08) 0%, transparent 30%),
+                        radial-gradient(circle at 20% 80%, rgba(11,37,69,0.12) 0%, transparent 45%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .text-justify { text-align: justify; text-justify: inter-word; }
+        .modal-blur { filter: blur(4px); transition: filter 0.18s ease; }
+    </style>
+</head>
+<body class="bg-background-dark text-text-light transition-colors duration-300">
+<div id="page-main" class="relative z-0">
+<nav class="fixed w-full z-50 bg-background-dark/80 backdrop-blur-sm border-b border-border-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                        <span class="material-symbols-outlined text-accent text-3xl">hub</span>
+<span class="font-bold text-xl tracking-tight text-white">BALTAS <span class="text-accent">MEDIA LAB</span></span>
+</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-gray-300 hover:text-primary transition font-medium" href="#inicio">Inicio</a>
+<a class="text-gray-300 hover:text-primary transition font-medium" href="#servicios">Servicios</a>
+<a class="text-gray-300 hover:text-primary transition font-medium" href="#testimonios">Testimonios</a>
+                <button class="p-2 rounded-full hover:bg-card-dark transition" id="theme-toggle">
+                <span class="material-symbols-outlined text-gray-300 text-xl block dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined text-accent text-xl hidden dark:block">light_mode</span>
+                </button>
+<a class="bg-primary hover:bg-secondary text-white px-5 py-2.5 rounded-full font-medium transition shadow-md" href="#contacto">
+                        Solicita tu consulta gratuita
+                    </a>
+</div>
+<div class="md:hidden flex items-center">
+<button class="text-gray-300 hover:text-accent focus:outline-none">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-gradient-overlay" id="inicio">
+<div class="absolute inset-0 grid-background opacity-20"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+<div class="fade-in-up">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-text-light text-sm font-semibold mb-6 border border-accent/30">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Agencia de Innovación en Barcelona
+                    </div>
+<h1 class="text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+                        Transformamos negocios con <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent/80 to-accent">Inteligencia Artificial</span>
+</h1>
+<p class="text-lg text-text-dark mb-8 max-w-lg leading-relaxed">
+                        En Baltas Media Lab unimos tecnología, automatización y creatividad para escalar tu empresa. Diseñamos el futuro de tu marca desde el corazón de Barcelona.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-primary hover:bg-secondary text-white px-8 py-3.5 rounded-lg font-bold text-center transition shadow-md hover:shadow-lg" href="#contacto">
+                            Empezar ahora
+                        </a>
+<a class="border border-border-dark text-gray-300 hover:border-primary hover:text-primary px-8 py-3.5 rounded-lg font-semibold text-center transition flex items-center justify-center gap-2 group" href="#servicios">
+                            Ver servicios
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="mt-10 flex items-center gap-4 text-sm text-text-dark">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-background-dark"></div>
+<div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-background-dark"></div>
+<div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-background-dark"></div>
+</div>
+<p>Más de <span class="font-bold text-white">50+</span> clientes satisfechos.</p>
+</div>
+</div>
+    <div class="relative fade-in-up delay-200 flex justify-center">
+<div class="absolute -inset-4 bg-accent/6 rounded-3xl -z-10"></div>
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-primary/50 group transform hover:scale-[1.01] transition-transform duration-500 inline-block">
+    <img alt="Roberto Blanco, Fundador de Baltas Media Lab" class="block max-w-sm h-auto object-cover transform transition duration-700 group-hover:scale-105" src="rober.png" />
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+<p class="font-bold text-lg">Roberto Blanco</p>
+<p class="text-sm opacity-80">Fundador &amp; CEO</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Service detail modal -->
+</div>
+<div id="service-modal" class="fixed inset-0 hidden items-center justify-center px-4" style="z-index:9999;">
+    <div id="service-modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm" style="z-index:9998;"></div>
+    <div class="relative max-w-3xl w-full mx-auto bg-card-dark border border-border-dark rounded-2xl shadow-lg p-8" style="z-index:10000;">
+        <button id="service-modal-close" class="absolute top-4 right-4 p-2 rounded-full hover:bg-background-alt-dark"><span class="material-symbols-outlined text-text-light">close</span></button>
+        <h3 id="service-modal-title" class="text-2xl font-bold text-white mb-4"></h3>
+        <div id="service-modal-body" class="text-text-dark leading-relaxed text-justify"></div>
+    </div>
+</div>
+<section class="py-20 bg-background-alt-dark" id="servicios">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-accent font-bold tracking-wide uppercase text-sm mb-2">Nuestros Servicios</h2>
+<h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Soluciones digitales de alto impacto</h3>
+<p class="text-text-dark">Desde la automatización de procesos hasta estrategias de marketing avanzadas, cubrimos todo el espectro digital.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div data-service="ai" role="button" tabindex="0" class="bg-card-dark p-8 rounded-xl shadow-lg border border-border-dark hover:border-accent transition duration-300 group hover:scale-[1.02] transform cursor-pointer">
+<div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors text-accent/90 group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-3">Inteligencia Artificial</h4>
+<p class="text-text-dark leading-relaxed">Implementamos soluciones de IA para optimizar la toma de decisiones y predecir tendencias de mercado.</p>
+</div>
+<div data-service="automation" role="button" tabindex="0" class="bg-card-dark p-8 rounded-xl shadow-lg border border-border-dark hover:border-accent transition duration-300 group hover:scale-[1.02] transform cursor-pointer">
+<div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors text-accent/90 group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">settings_suggest</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-3">Automatización</h4>
+<p class="text-text-dark leading-relaxed">Ahorra tiempo y recursos automatizando tareas repetitivas en tu flujo de trabajo diario.</p>
+</div>
+<div data-service="web" role="button" tabindex="0" class="bg-card-dark p-8 rounded-xl shadow-lg border border-border-dark hover:border-accent transition duration-300 group hover:scale-[1.02] transform cursor-pointer">
+<div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors text-accent/90 group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">code</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-3">Desarrollo Web</h4>
+<p class="text-text-dark leading-relaxed">Sitios web rápidos, seguros y escalables diseñados para convertir visitantes en clientes.</p>
+</div>
+<div data-service="shopify" role="button" tabindex="0" class="bg-card-dark p-8 rounded-xl shadow-lg border border-border-dark hover:border-accent transition duration-300 group hover:scale-[1.02] transform cursor-pointer">
+<div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors text-accent/90 group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">shopping_bag</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-3">Shopify Experts</h4>
+<p class="text-text-dark leading-relaxed">Creamos tiendas online de alto rendimiento personalizadas para tu marca en Shopify.</p>
+</div>
+<div data-service="social" role="button" tabindex="0" class="bg-card-dark p-8 rounded-xl shadow-lg border border-border-dark hover:border-accent transition duration-300 group hover:scale-[1.02] transform cursor-pointer">
+<div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors text-accent/90 group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">share</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-3">Redes Sociales</h4>
+<p class="text-text-dark leading-relaxed">Gestión estratégica de comunidades y contenido creativo que conecta con tu audiencia.</p>
+</div>
+<div data-service="marketing" role="button" tabindex="0" class="bg-card-dark p-8 rounded-xl shadow-lg border border-border-dark hover:border-accent transition duration-300 group hover:scale-[1.02] transform cursor-pointer">
+<div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors text-accent/90 group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">trending_up</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-3">Marketing Digital</h4>
+<p class="text-text-dark leading-relaxed">Estrategias integrales de SEO, SEM y Email Marketing enfocadas en el retorno de inversión.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-background-dark" id="testimonios">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-16">Lo que dicen nuestros clientes</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-card-dark p-8 rounded-2xl relative border border-border-dark shadow-lg">
+<span class="material-symbols-outlined text-accent/30 text-5xl absolute top-4 left-4">format_quote</span>
+<p class="text-text-light mb-6 relative z-10 pt-6 italic">"Baltas Media Lab transformó completamente nuestra presencia online. La automatización de nuestros procesos de venta ha incrementado la eficiencia un 40%."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden border border-primary/50">
+<img alt="Cliente" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_H51OHQuwCdNXnxPZyInhKo0BQjQlOQ2MgRjUyHpXNWtlvcPlneLmuqxgxW91UCyLPUScCID3Yo_pHI6LOHx7Wr4V4SWimNP_gh9izCU8BTZfSsDgtREN1XKoFW1NzZTJznW-gwdHhluy0PaJ-7i7arYVKZeon7qnImHv8B3332JQYviKvLW-TrywYhj66Tao9zf9-sxv5_JCmrPTl4XQGTWFvyg7IimRSuhfjPbPS4dt9cOV314ZFOpUDhk4Zz1iGZq5nr5T-1o"/>
+</div>
+<div>
+<h5 class="font-bold text-white">Carlos Rodriguez</h5>
+<span class="text-sm text-text-dark">CEO, TechStart</span>
+</div>
+</div>
+</div>
+<div class="bg-card-dark p-8 rounded-2xl relative border border-border-dark shadow-lg">
+<span class="material-symbols-outlined text-accent/30 text-5xl absolute top-4 left-4">format_quote</span>
+<p class="text-text-light mb-6 relative z-10 pt-6 italic">"Roberto y su equipo son excepcionales. Entendieron nuestra visión desde el primer día y la ejecutaron con una precisión técnica impresionante."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden border border-primary/50">
+<img alt="Cliente" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDErQ-mgjz6X5jmrHN_7vtFqQvdHhvDNC4vIv-uXo-fQnM0zm5foPKhbznRtRmvybLbS3eicG7WgDUbf9vM3G7V52KnJOvp_yiBmM7pWKirUPMEfUw_nOF_A2rKa8cirjPG_Ud_vdybEDrR3v3rHNK0a8EW-OtwQ6hLDGtnLv_A63ChXAsDE9P_xKMhfS1moILt4EGVf18KyeZ0Di5fw1FuFMbYfynEU074ihEgSndg4tOEogdLjeYu2zuozfRgvM5qQqUXvoHB1Aw"/>
+</div>
+<div>
+<h5 class="font-bold text-white">Ana Martínez</h5>
+<span class="text-sm text-text-dark">Directora de Marketing, ModaVanguardia</span>
+</div>
+</div>
+</div>
+<div class="bg-card-dark p-8 rounded-2xl relative border border-border-dark shadow-lg">
+<span class="material-symbols-outlined text-accent/30 text-5xl absolute top-4 left-4">format_quote</span>
+<p class="text-text-light mb-6 relative z-10 pt-6 italic">"La mejor inversión que hemos hecho este año. Su estrategia de Shopify nos ayudó a duplicar nuestras ventas en el primer trimestre."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden border border-primary/50">
+<img alt="Cliente" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7rOk735O71Hh6Xm6ZpU5hKHMfAYJtm2wSmA35yqvwpIvnfrd85AQxZoneTd_rtU13L_RU8iilpGRMNYvr8N-hZWaCQ975qx63Y-BXXtBOJQlgfo5Y59OgR4QOO2t-dHy7GVdESrcY4t_oeHwpmOXv0MmUanYZosKp6RiKCzHUTT_iV0Yb6S7HlNCfmjauoh54fs7xvLGIov1piRguIMLJWgfEpK9MBoMsS_8gAiZ5BgjP5Mu0SsGOrTbHHxdVIP57dlhRjSVx2dE"/>
+</div>
+<div>
+<h5 class="font-bold text-white">David Sanchez</h5>
+<span class="text-sm text-text-dark">Fundador, EcoHome</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-background-alt-dark" id="contacto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-br from-accent/6 to-accent/10 rounded-3xl overflow-hidden shadow-md">
+<div class="grid lg:grid-cols-2">
+<div class="p-10 md:p-14 text-white flex flex-col justify-between relative">
+<div class="absolute inset-0 grid-background opacity-20"></div>
+<div class="relative z-10">
+<h3 class="text-3xl font-bold mb-6">Hablemos de tu proyecto</h3>
+<p class="text-accent/80 mb-8 text-lg">¿Listo para escalar tu negocio? Agenda una consulta gratuita y descubre cómo podemos ayudarte.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">email</span>
+</div>
+<span>hola@baltasmedialab.com</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">location_on</span>
+</div>
+<span>Barcelona, España</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">phone</span>
+</div>
+<span>+34 934 123 456</span>
+</div>
+</div>
+</div>
+<div class="mt-12 relative z-10">
+<p class="text-sm text-accent/70">Síguenos en redes sociales</p>
+<div class="flex gap-4 mt-4">
+<a class="hover:text-white text-accent/70 transition" href="#">LinkedIn</a>
+<a class="hover:text-white text-accent/70 transition" href="#">Instagram</a>
+<a class="hover:text-white text-accent/70 transition" href="#">Twitter</a>
+</div>
+</div>
+</div>
+<div class="bg-card-dark p-10 md:p-14 rounded-r-3xl border-l border-border-dark">
+<form class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1" for="name">Nombre completo</label>
+<input class="w-full px-4 py-3 rounded-lg border border-border-dark bg-background-dark text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" id="name" placeholder="Tu nombre" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1" for="email">Correo electrónico</label>
+<input class="w-full px-4 py-3 rounded-lg border border-border-dark bg-background-dark text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" id="email" placeholder="tu@empresa.com" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1" for="service">Servicio de interés</label>
+<select class="w-full px-4 py-3 rounded-lg border border-border-dark bg-background-dark text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" id="service">
+<option>Inteligencia Artificial</option>
+<option>Automatización</option>
+<option>Desarrollo Web</option>
+<option>Marketing Digital</option>
+<option>Otro</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1" for="message">Mensaje</label>
+<textarea class="w-full px-4 py-3 rounded-lg border border-border-dark bg-background-dark text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" id="message" placeholder="Cuéntanos sobre tu proyecto..." rows="4"></textarea>
+</div>
+<button class="w-full bg-white text-card-dark font-bold py-3.5 rounded-lg hover:bg-gray-200 transition transform hover:-translate-y-0.5 shadow-md" type="button">
+                                Enviar Mensaje
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-black text-gray-300 py-12 border-t border-border-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-4 gap-8 mb-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-accent text-2xl">hub</span>
+<span class="font-bold text-lg text-white">BALTAS MEDIA LAB</span>
+</div>
+<p class="text-sm text-text-dark">Impulsando la transformación digital de empresas visionarias.</p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Empresa</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-accent transition" href="#">Sobre Nosotros</a></li>
+<li><a class="hover:text-accent transition" href="#">Carreras</a></li>
+<li><a class="hover:text-accent transition" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Servicios</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-accent transition" href="#">Consultoría IA</a></li>
+<li><a class="hover:text-accent transition" href="#">Desarrollo Web</a></li>
+<li><a class="hover:text-accent transition" href="#">Marketing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Legal</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-accent transition" href="#">Política de Privacidad</a></li>
+<li><a class="hover:text-accent transition" href="#">Términos de Servicio</a></li>
+<li><a class="hover:text-accent transition" href="#">Cookies</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-border-dark pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-text-dark">© 2026 Baltas Media Lab. Todos los derechos reservados.</p>
+<div class="flex space-x-4">
+<a class="text-gray-400 hover:text-white transition" href="#"><span class="material-symbols-outlined">group</span></a>
+<a class="text-gray-400 hover:text-white transition" href="#"><span class="material-symbols-outlined">deployed_code</span></a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        // The new design is dark-first, so ensure dark mode is applied by default unless explicitly light
+        if (localStorage.getItem('color-theme') === 'light') {
+            html.classList.remove('dark');
+        } else {
+            // Default to dark mode or follow system preference
+            html.classList.add('dark');
+        }
+        themeToggleBtn.addEventListener('click', function() {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+    </script>
+
+    <!-- Material Symbols used for icons; no external JS needed -->
+    <script>
+        (function(){
+            const content = {
+                ai: {
+                    title: 'Inteligencia Artificial',
+                    body: `
+<p>Diseñamos e implementamos soluciones avanzadas de Inteligencia Artificial (IA) que permiten a las empresas transformar sus procesos de negocio y obtener ventajas competitivas significativas. Nuestra IA se enfoca en analizar grandes volúmenes de datos para optimizar la toma de decisiones, automatizar tareas repetitivas y predecir tendencias de mercado con alta precisión. Esto incluye desde modelos de machine learning para segmentación de clientes y análisis predictivo, hasta sistemas de recomendación personalizados y detección de anomalías en operaciones.</p>
+
+<p>Trabajamos estrechamente con cada cliente para entender sus necesidades específicas y adaptar las soluciones a su sector y objetivos estratégicos. La integración de IA puede abarcar desde la mejora en la gestión de inventarios, optimización de cadenas de suministro, hasta la personalización de campañas de marketing digital. Además, garantizamos que las soluciones sean escalables, seguras y cumplan con las normativas vigentes de protección de datos.</p>
+
+<p>El proceso incluye la recopilación y limpieza de datos, desarrollo y entrenamiento de modelos, validación rigurosa y despliegue en entornos productivos, con soporte continuo para ajustes y mejoras. Nuestro objetivo es que la IA no solo aporte valor inmediato, sino que también facilite la innovación constante y la adaptación a cambios del mercado.</p>
+`
+                },
+                automation: {
+                    title: 'Automatización de Procesos',
+                    body: `
+<p>Ayudamos a las empresas a optimizar su eficiencia operativa mediante la automatización inteligente de tareas repetitivas y procesos manuales. Nuestra solución de automatización está diseñada para liberar a los equipos de trabajo de actividades rutinarias que consumen tiempo y recursos, permitiéndoles centrarse en tareas de mayor valor estratégico. Implementamos flujos de trabajo automatizados que integran diferentes sistemas y aplicaciones, garantizando una comunicación fluida y sin errores entre departamentos.</p>
+
+<p>Desde la automatización de la gestión de correos electrónicos, generación de informes, hasta la coordinación de procesos complejos como la facturación, gestión de inventarios o atención al cliente, adaptamos cada solución a las necesidades específicas de cada negocio. Utilizamos tecnologías como RPA (Robotic Process Automation), APIs y scripts personalizados para crear sistemas robustos, escalables y fáciles de mantener.</p>
+
+<p>Además, nuestro enfoque incluye un análisis detallado de los procesos actuales para identificar cuellos de botella y oportunidades de mejora, asegurando que la automatización aporte un impacto real y medible en la productividad y reducción de costes. Ofrecemos soporte continuo para ajustar y ampliar las automatizaciones conforme evoluciona la empresa.</p>
+`
+                },
+                web: {
+                    title: 'Desarrollo Web',
+                    body: `
+<p>Creamos sitios web corporativos y de negocio que combinan diseño atractivo, funcionalidad avanzada y rendimiento óptimo para potenciar la presencia digital de tu empresa. Nuestros desarrollos están orientados a ofrecer una experiencia de usuario fluida, rápida y segura, que facilite la conversión de visitantes en clientes reales. Trabajamos con tecnologías modernas y escalables que permiten que tu web crezca y se adapte a las necesidades cambiantes del mercado.</p>
+
+<p>Cada proyecto comienza con un análisis detallado de los objetivos comerciales y la audiencia objetivo, para diseñar una arquitectura de información clara y una interfaz intuitiva. Implementamos prácticas de SEO técnico para mejorar la visibilidad en buscadores y optimizamos la velocidad de carga para maximizar la retención de usuarios. Además, garantizamos que los sitios sean totalmente responsivos, adaptándose perfectamente a dispositivos móviles, tablets y escritorios.</p>
+
+<p>Ofrecemos integración con sistemas de gestión de contenido (CMS) para que puedas actualizar fácilmente tu web, así como funcionalidades personalizadas como formularios, catálogos, blogs, y comercio electrónico. La seguridad es una prioridad, aplicando protocolos y medidas para proteger los datos y la integridad del sitio. Finalmente, brindamos soporte y mantenimiento continuo para asegurar que tu presencia online esté siempre actualizada y funcionando al máximo rendimiento.</p>
+`
+                },
+                shopify: {
+                    title: 'Shopify Experts',
+                    body: `
+<p>Diseñamos y desarrollamos tiendas online en Shopify pensadas para convertir visitas en ventas, optimizando la experiencia de compra y la velocidad de la tienda. Partimos de un análisis de marca y producto para definir la arquitectura de la tienda, el catálogo y los flujos de compra más adecuados a tu cliente objetivo. Implementamos o personalizamos temas responsive y accesibles, cuidando la usabilidad en móviles y la coherencia visual con la identidad de la marca.</p>
+
+<p>Integramos las funcionalidades necesarias: variantes de producto, filtros inteligentes, búsquedas avanzadas, checkout optimizado y métodos de pago/localización según el mercado. Añadimos automatizaciones con apps y scripts (por ejemplo, gestión de stock, recuperación de carritos, y sincronización con ERP/CRM) para reducir trabajo manual y mejorar la eficiencia operativa. Si es necesario, realizamos migraciones desde otras plataformas preservando SEO y datos de clientes/pedidos. Optimizamos rendimiento (carga, imágenes, lazy-loading) y aplicamos buenas prácticas SEO técnico para mejorar visibilidad orgánica.</p>
+
+<p>Ofrecemos integración con herramientas de analítica y marketing (Google Analytics/GA4, pixel de Meta, herramientas de email marketing) para medir y escalar ventas. Para proyectos que lo requieren, desarrollamos soluciones a medida o headless commerce sobre Shopify (Hydrogen/Storefront API). Garantizamos pruebas, seguridad y cumplimiento normativo (protección de datos, cumplimiento fiscal básico según país). Finalmente, entregamos formación para el equipo y soporte post-lanzamiento para iterar con base en datos reales.</p>
+`
+                },
+                social: {
+                    title: 'Redes Sociales',
+                    body: `
+<p>Ofrecemos un servicio integral de gestión estratégica de redes sociales diseñado para construir y fortalecer la presencia digital de tu marca, conectar auténticamente con tu audiencia y potenciar el engagement. Nuestro enfoque combina análisis de mercado y comportamiento del público objetivo para crear contenidos creativos, relevantes y alineados con los valores y objetivos de tu empresa.</p>
+
+<p>Desarrollamos calendarios editoriales personalizados que incluyen publicaciones, stories, reels y campañas específicas para cada plataforma (Instagram, Facebook, LinkedIn, Twitter, TikTok, etc.), optimizando formatos y horarios para maximizar el alcance y la interacción. Además, gestionamos la comunidad respondiendo a comentarios, mensajes y fomentando la participación activa para crear una relación sólida y de confianza con tus seguidores.</p>
+
+<p>Implementamos estrategias de crecimiento orgánico y campañas de publicidad pagada (ads) segmentadas para atraer nuevos seguidores cualificados y convertirlos en clientes potenciales. Monitorizamos continuamente el rendimiento mediante métricas clave (KPIs) y ajustamos las tácticas para mejorar resultados, siempre con informes claros y transparentes para que puedas medir el retorno de inversión.</p>
+`
+                },
+                marketing: {
+                    title: 'Marketing Digital',
+                    body: `
+<p>Diseñamos y ejecutamos estrategias integrales de marketing digital que combinan SEO, SEM y email marketing para maximizar el retorno de inversión (ROI) de tu negocio. Nuestro enfoque comienza con un análisis exhaustivo del mercado, competencia y comportamiento del usuario para definir objetivos claros y medibles.</p>
+
+<p>En SEO, optimizamos tanto la estructura técnica del sitio web como el contenido para mejorar la visibilidad orgánica en buscadores, aumentando el tráfico cualificado y la autoridad de la marca. Realizamos auditorías SEO, investigación de palabras clave, optimización on-page y off-page, y seguimiento continuo de rankings y métricas.</p>
+
+<p>En SEM, gestionamos campañas de publicidad pagada en plataformas como Google Ads y redes sociales, diseñando anuncios efectivos y segmentados para atraer clientes potenciales con alta intención de compra. Optimizamos el presupuesto mediante pruebas A/B, ajustes de pujas y análisis de conversiones para maximizar la eficiencia.</p>
+
+<p>En email marketing, creamos campañas personalizadas y automatizadas que fomentan la fidelización, el upselling y la recuperación de clientes, utilizando segmentación avanzada y análisis de comportamiento para mejorar la tasa de apertura y conversión.</p>
+
+<p>Además, ofrecemos informes detallados y asesoría continua para ajustar las estrategias según los resultados y cambios del mercado, asegurando que cada euro invertido genere el mayor impacto posible.</p>
+`
+                }
+            };
+
+            const modal = document.getElementById('service-modal');
+            const backdrop = document.getElementById('service-modal-backdrop');
+            const titleEl = document.getElementById('service-modal-title');
+            const bodyEl = document.getElementById('service-modal-body');
+            const closeBtn = document.getElementById('service-modal-close');
+
+            function openModal(key){
+                const item = content[key];
+                if(!item) return;
+                titleEl.textContent = item.title;
+                bodyEl.innerHTML = item.body;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                const page = document.getElementById('page-main');
+                if(page) page.classList.add('modal-blur');
+            }
+
+            function closeModal(){
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+                const page = document.getElementById('page-main');
+                if(page) page.classList.remove('modal-blur');
+            }
+
+            // Attach handlers to service cards
+            document.querySelectorAll('[data-service]').forEach(function(el){
+                el.addEventListener('click', function(){ openModal(el.getAttribute('data-service')); });
+                el.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(el.getAttribute('data-service')); } });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            backdrop.addEventListener('click', closeModal);
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+        })();
+    </script>
+
+</body></html>
